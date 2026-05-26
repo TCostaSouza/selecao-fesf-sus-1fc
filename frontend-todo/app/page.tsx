@@ -1,4 +1,4 @@
-"use cliente"
+"use cliente";
 
 import { useEffect, useState } from "react";
 
@@ -40,19 +40,29 @@ export default function Home() {
 
   return (
     <div>
-      <h1 >
-        Minha Lista de Tarefas
-      </h1>
+      <h1>Minha Lista de Tarefas</h1>
 
       {/* Área para adicionar nova tarefa */}
       <div></div>
 
       {/* Lista de tarefas existentes */}
+      <ul>
+        {tarefas.length === 0 ? (
+          <p>Nenhuma tarefa pendente. </p>
+        ) : (
+          tarefas.map((tarefa) => (
+            <li key={tarefa.id}>
+              <span className="text-gray-800">{tarefa.texto}</span>
+              <button onClick={() => deletarTarefa(tarefa.id)}>Excluir</button>
+            </li>
+          ))
+        )}
+      </ul>
       <div>
         {/* Tarefa */}
         {/* Botão de excluir */}
         {/* Marcar/Desmarcar  na div toda */}
       </div>
     </div>
-  )
+  );
 }
