@@ -29,3 +29,18 @@ class Tarefa(BaseModel):
 def listar_tarefas():
     return tarefas
 
+# Criar nova tarefa
+@app.post("/tarefas")
+def criar_tarefa(tarefa_recebida: Tarefa):
+    global contador_id
+    
+    nova_tarefa = {
+        "id": contador_id, 
+        "texto": tarefa_recebida.texto, 
+        "concluida": False
+    }
+    
+    tarefas.append(nova_tarefa)
+    contador_id += 1 # Prepara o próximo ID
+    
+    return nova_tarefa
