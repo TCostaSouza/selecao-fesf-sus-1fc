@@ -1,9 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import z from "zod";
+
+const tarefaSchema = z.object({
+  id: z.number(),
+  texto: z.string().min(1, "O texto não pode ser vazio"),
+});
+type Tarefa = z.infer<typeof tarefaSchema>;
 
 export default function Home() {
-  const [tarefas, setTarefas] = useState([]);
+  const [tarefas, setTarefas] = useState<Tarefa[]>([]);
   const [novaTarefa, setNovaTarefa] = useState("");
 
   const backendUrl = "http://127.0.0.1:8000/tarefas";
@@ -43,7 +50,7 @@ export default function Home() {
     }
   };
 
-  const deletarTarefa = async (id) => {
+  const deletarTarefa = async (id: number) => {
     try {
       const resposta = await fetch(`${backendUrl}/${id}`, {
         method: "DELETE",
