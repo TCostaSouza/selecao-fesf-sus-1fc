@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [tarefas, setTarefas] = useState([]); 
+  const [tarefas, setTarefas] = useState([]);
   const [novaTarefa, setNovaTarefa] = useState("");
 
   const backendUrl = "http://127.0.0.1:8000/tarefas";
@@ -37,4 +37,22 @@ export default function Home() {
       console.error("Erro ao deletar tarefa:", erro);
     }
   };
+
+  return (
+    <div>
+      <h1 >
+        Minha Lista de Tarefas
+      </h1>
+
+      {/* Área para adicionar nova tarefa */}
+      <div></div>
+
+      {/* Lista de tarefas existentes */}
+      <div>
+        {/* Tarefa */}
+        {/* Botão de excluir */}
+        {/* Marcar/Desmarcar  na div toda */}
+      </div>
+    </div>
+  )
 }
