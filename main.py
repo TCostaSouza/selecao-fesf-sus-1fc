@@ -21,4 +21,11 @@ contador_id = 1
 class Tarefa(BaseModel):
     texto: str
 
-    
+
+#------------ ROTAS ------------
+
+# Listar tarefas
+@app.get("/tarefas")
+def listar_tarefas():
+    return tarefas
+
