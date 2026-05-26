@@ -24,6 +24,25 @@ export default function Home() {
     buscarTarefas();
   }, []);
 
+  const adicionarTarefa = async () => {
+    if (!novaTarefa.trim()) return;
+
+    try {
+      const resposta = await fetch(backendUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ texto: novaTarefa }),
+      });
+
+      if (resposta.ok) {
+        setNovaTarefa(""); // Limpa o campo de texto
+        buscarTarefas(); // Pede a lista atualizada para o backend
+      }
+    } catch (erro) {
+      console.error("Erro ao adicionar tarefa:", erro);
+    }
+  };
+
   const deletarTarefa = async (id) => {
     try {
       const resposta = await fetch(`${backendUrl}/${id}`, {
@@ -43,7 +62,15 @@ export default function Home() {
       <h1>Minha Lista de Tarefas</h1>
 
       {/* Área para adicionar nova tarefa */}
-      <div></div>
+      <div className="flex gap-2 mb-6">
+        <input
+          type="text"
+          value={novaTarefa}
+          onChange={(e) => setNovaTarefa(e.target.value)}
+          placeholder="O que você precisa fazer?"
+        />
+        <button onClick={adicionarTarefa}>Adicionar</button>
+      </div>
 
       {/* Lista de tarefas existentes */}
       <ul>
