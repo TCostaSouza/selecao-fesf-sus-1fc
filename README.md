@@ -79,18 +79,17 @@ IMPORTANTE!: Uma vez que o servidor esteja rodando, NÃO feche esse terminal!
 
 Abra uma nova janela de terminal (para não fechar o backend) e siga os passos
 
-[cite: 1]:Navegue até a pasta do frontend[cite: 1]:
+Navegue até a pasta do frontend
 ```
-d frontend-todo
+cd frontend-todo
 ```
 
-
-[cite: 1]: Instale as dependências do Node.js (isso vai ler o arquivo package.json e baixar o que for preciso)[cite: 1]:
+Instale as dependências do Node.js (isso vai ler o arquivo package.json e baixar o que for preciso)
 ```
 npm install
 ```
 
-[cite: 1]:Inicie o servidor de desenvolvimento do Next.js[cite: 1]:
+Inicie o servidor de desenvolvimento do Next.js
 ```
 npm run dev
 ```
