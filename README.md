@@ -23,7 +23,7 @@ Siga os passos abaixo para baixar e rodar o projeto na sua máquina.
 
 ### Passo 1: Clonar o repositório
 Abra o seu terminal e rode o comando abaixo para baixar o código do GitHub:
-```bash
+
 git clone https://github.com/TCostaSouza/selecao-fesf-sus.git
 cd selecao-fesf-sus
 
